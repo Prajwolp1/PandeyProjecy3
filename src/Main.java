@@ -6,10 +6,10 @@ public class Main {
         System.out.print("Enter your name: ");
         String name = scan.nextLine();
 
-        System.out.println("How long should the password be? (Should be at least 8)");
+        System.out.print("How long should the password be? (Should be at least 8) ");
         int characters = scan.nextInt();
         scan.nextLine();
         QuestionGenerator generator = new QuestionGenerator(name, characters);
-
+        generator.QuestionRunner();
     }
 }

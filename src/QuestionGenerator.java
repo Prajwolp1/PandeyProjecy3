@@ -11,10 +11,10 @@ public class QuestionGenerator {
         Scanner scan = new Scanner(System.in);
         String str = "";
         int repeat = 0;
-        if (characters > 8) {
-            repeat = 3;
-        }   else {
+        if (characters > 12) {
             repeat = 2;
+        }   else if (characters <= 12) {
+            repeat = 1;
         }
 
         for (int i = repeat; i != 0; i--) {
@@ -23,29 +23,29 @@ public class QuestionGenerator {
             System.out.print(newQuestion);
             String answer = scan.nextLine();
             str += " " + answer;
-            System.out.println(" ");
         }
-        PasswordGenerator generate = new PasswordGenerator(str, characters);
+        PasswordGenerator generate = new PasswordGenerator(str, characters, name);
+        generate.PasswordMaker();
     }
 
     public String Questions(int random)   {
         if (random == 1)    {
-            return"What is your favorite food? ";
+            return name + ", What is your favorite food? ";
         }
         if (random == 2)    {
-            return"How many siblings do you have? ";
+            return name + ", What is your favorite word? ";
         }
         if (random == 3)    {
-            return"What was the name of your birth city? ";
+            return name + ", What was the name of your birth city? ";
         }
         if (random == 4)    {
-            return"What is your favorite artist to listen to? ";
+            return name + ", What is the name of your best friend? ";
         }
         if (random == 5)    {
-            return"What is your favorite number? ";
+            return name + ", What is your favorite number? ";
         }
         else  {
-            return"What is the name of your mother? ";
+            return name + ", What is the name of your mother or father? ";
         }
     }
 }
