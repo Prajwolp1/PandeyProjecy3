@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class PasswordGenerator {
     private String questions;
     private int limit;
@@ -7,27 +8,32 @@ public class PasswordGenerator {
         this.questions = questions;
         this.limit = limit;
         this.name = name;
-        PasswordMaker();
+    }
+    public PasswordGenerator (String questions, int limit)  {
+        this.questions = questions;
+        this.limit = limit;
+        name = "";
     }
     public void PasswordMaker() {
-        String password = name;
-        String str = questions;
-        String firstAnswer = "";
-        for (int j = 0; j < limit; j++) {
-            if (!(str.substring(j, j + 1).equals(" "))) {
-                firstAnswer += str.substring(j, j + 1);
-            }
-            if (str.substring(j, j + 1).equals(" ")) {
-                str = str.substring(j + 1);
-                j = limit;
-            }
+        Scanner scan = new Scanner(System.in);
+        String password = name + questions;
+        // replaces any a's with @'s
+        String newStr = password.replace('a','@');
+        // replaces any o's with 0's
+        newStr = newStr.replace('o','0');
+        //replace any i's with !'s
+        newStr = newStr.replace('i', '!');
+        newStr += (int)(Math.random() * 100) + 100;
+        System.out.println(newStr);
+        System.out.println("\n\n Are you happy with this password (Y or N): ");
+        String yorN = scan.nextLine();
+        if (yorN.equals("N"))   {
+            QuestionGenerator generator = new QuestionGenerator(name, limit);
+            generator.QuestionRunner();
         }
-        int numLimit = limit - name.length();
-        while (numLimit != 0)   {
-            password += firstAnswer;
-            numLimit -= firstAnswer.length();
+        else {
+            System.out.println("Thank you for using this program and have a Great Day! ");
         }
-        System.out.println(password);
     }
 
 
