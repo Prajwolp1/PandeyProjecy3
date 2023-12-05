@@ -29,16 +29,17 @@ public class PasswordGenerator {
                 newStr += (int)(Math.random() * 9) + 1;
             }
         }   else if (newStr.length() > limit)   {
-            newStr = newStr.substring(0,newStr.length()-limit-2);
+            int remain = newStr.length() - limit;
+            newStr = newStr.substring(0,newStr.length() - (remain + 2));
             int i = 0;
             while (i < 2)   {
-                newStr += (int)(Math.random() * 9) + 1;
+                newStr += (int)(Math.random() * 10);
                 i++;
             }
         }
 
         System.out.println(newStr);
-        System.out.println("\n\n Are you happy with this password (Y or N): ");
+        System.out.println("\n\nAre you happy with this password (Y or N): ");
         String yorN = scan.nextLine();
         if (yorN.equals("N"))   {
             QuestionGenerator generator = new QuestionGenerator(name, limit);
