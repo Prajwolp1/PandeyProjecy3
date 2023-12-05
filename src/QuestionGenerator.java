@@ -17,7 +17,6 @@ public class QuestionGenerator {
     public void QuestionRunner()    {
         Scanner scan = new Scanner(System.in);
         String str = "";
-
         int count = 0;
         while((str.length() < characters - name.length() - 3) && (count < 3)) {
             int random = (int) (Math.random() * 5);
@@ -27,7 +26,6 @@ public class QuestionGenerator {
             str += "_" + answer;
             count++;
         }
-
         // Asks the user if they want their name for the password or not
         System.out.print("Do you want to have your name in the password (Y or N): ");
         String yOrN = scan.nextLine();

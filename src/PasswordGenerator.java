@@ -23,7 +23,6 @@ public class PasswordGenerator {
         newStr = newStr.replace('o','0');
         //replace any i's with !'s
         newStr = newStr.replace('i', '!');
-
         if (newStr.length() < limit) {
             for (int i = 0; i != (limit - newStr.length()); i++)    {
                 newStr += (int)(Math.random() * 9) + 1;
@@ -37,9 +36,9 @@ public class PasswordGenerator {
                 i++;
             }
         }
-
+        newStr += "6";
         System.out.println(newStr);
-        System.out.println("\n\nAre you happy with this password (Y or N): ");
+        System.out.print("\nAre you happy with this password (Y or N): ");
         String yorN = scan.nextLine();
         if (yorN.equals("N"))   {
             QuestionGenerator generator = new QuestionGenerator(name, limit);
