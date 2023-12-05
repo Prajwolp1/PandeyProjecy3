@@ -28,15 +28,9 @@ public class PasswordGenerator {
         }   else if (newStr.length() > limit)   {
             System.out.println(tooLongOrShort(newStr,1));
         }
-        String yorN = "";
-        for (int i = 0; i != 1; i++)    {
-            int j = 0;
-            while(j != 1)   {
-                System.out.print("\nAre you happy with this password (Y or N): ");
-                yorN = scan.nextLine();
-                j ++;
-            }
-        }
+
+        System.out.print("\nAre you happy with this password (Y or N): ");
+        String yorN = scan.nextLine();
 
         if (yorN.equals("N"))   {
             QuestionGenerator generator = new QuestionGenerator(name, limit);

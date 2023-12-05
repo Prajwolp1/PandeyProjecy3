@@ -29,6 +29,7 @@ public class QuestionGenerator {
         // Asks the user if they want their name for the password or not
         System.out.print("Do you want to have your name in the password (Y or N): ");
         String yOrN = scan.nextLine();
+        // creates object based on user input
         if (yOrN.equals("Y"))   {
             PasswordGenerator generate = new PasswordGenerator(str, characters, name);
             generate.PasswordMaker();
