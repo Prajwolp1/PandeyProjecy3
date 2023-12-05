@@ -19,7 +19,7 @@ public class QuestionGenerator {
         String str = "";
         int count = 0;
         while((str.length() < characters - name.length() - 3) && (count < 3)) {
-            int random = (int) (Math.random() * 5);
+            int random = (int) (Math.random() * 6) + 1;
             String newQuestion = Questions(random);
             System.out.print(newQuestion);
             String answer = scan.nextLine();

@@ -24,22 +24,20 @@ public class PasswordGenerator {
         //replace any i's with !'s
         newStr = newStr.replace('i', '!');
         if (newStr.length() < limit) {
-            for (int i = 0; i != (limit - newStr.length()); i++)    {
-                newStr += (int)(Math.random() * 9) + 1;
-            }
+            System.out.println(tooLongOrShort(newStr));
         }   else if (newStr.length() > limit)   {
-            int remain = newStr.length() - limit;
-            newStr = newStr.substring(0,newStr.length() - (remain + 2));
-            int i = 0;
-            while (i < 2)   {
-                newStr += (int)(Math.random() * 10);
-                i++;
+            System.out.println(tooLongOrShort(newStr,1));
+        }
+        String yorN = "";
+        for (int i = 0; i != 1; i++)    {
+            int j = 0;
+            while(j != 1)   {
+                System.out.print("\nAre you happy with this password (Y or N): ");
+                yorN = scan.nextLine();
+                j ++;
             }
         }
-        newStr += "6";
-        System.out.println(newStr);
-        System.out.print("\nAre you happy with this password (Y or N): ");
-        String yorN = scan.nextLine();
+
         if (yorN.equals("N"))   {
             QuestionGenerator generator = new QuestionGenerator(name, limit);
             generator.QuestionRunner();
@@ -49,5 +47,22 @@ public class PasswordGenerator {
         }
     }
 
+    public String tooLongOrShort (String newStr) {
+        for (int i = 0; i != (limit - newStr.length()); i++)    {
+            newStr += (int)(Math.random() * 9) + 1;
+        }
+        return newStr;
+    }
+
+    public String tooLongOrShort (String newStr, int count) {
+        int remain = newStr.length() - limit;
+        newStr = newStr.substring(0,newStr.length() - (remain + 2));
+        int i = 0;
+        while (i < 2)   {
+            newStr += (int)(Math.random() * 10);
+            i++;
+        }
+        return newStr;
+    }
 
 }
