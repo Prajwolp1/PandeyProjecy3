@@ -10,7 +10,7 @@ public class QuestionGenerator {
 
     public QuestionGenerator(String giveName)   {
         this.name = giveName;
-        characters = (int) (Math.random() + 1) * 10;
+        characters = (int) (Math.random() + 12) * 9;
     }
 
     //Chooses questions to ask and sends it to PasswordGenerator
