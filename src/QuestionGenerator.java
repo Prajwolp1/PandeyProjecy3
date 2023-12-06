@@ -17,6 +17,9 @@ public class QuestionGenerator {
     public void QuestionRunner()    {
         Scanner scan = new Scanner(System.in);
         String str = "";
+        listOfQuestion();
+        System.out.println();
+        System.out.println("Questions: ");
         int count = 0;
         while((str.length() < characters - name.length() - 3) && (count < 3)) {
             int random = (int) (Math.random() * 6) + 1;
@@ -60,6 +63,21 @@ public class QuestionGenerator {
             return name + ", What is the name of your mother or father? ";
         }
         return"";
+    }
+    public void listOfQuestion()  {
+        System.out.println();
+        System.out.println("HERE ARE THE POSSIBLE QUESTIONS: ");
+        System.out.println();
+        System.out.println("--------------------------------------------");
+        int i = 1;
+        while (i < 7)   {
+            System.out.println(Questions(i));
+            for (int j = 0; j < 2; j++) {
+                System.out.println();
+            }
+            i++;
+        }
+        System.out.println("--------------------------------------------");
     }
 }
 

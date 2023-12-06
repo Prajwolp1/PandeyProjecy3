@@ -25,19 +25,16 @@ public class PasswordGenerator {
         newStr = newStr.replace('i', '!');
         if (newStr.length() < limit) {
             System.out.println(tooLongOrShort(newStr));
-        }   else if (newStr.length() > limit)   {
-            System.out.println(tooLongOrShort(newStr,1));
+        }   else   {
+            System.out.println(tooLongOrShort(newStr,2));
         }
 
         System.out.print("\nAre you happy with this password (Y or N): ");
         String yorN = scan.nextLine();
 
-        if (yorN.equals("N"))   {
-            QuestionGenerator generator = new QuestionGenerator(name, limit);
-            generator.QuestionRunner();
-        }
-        else {
-            System.out.println("Thank you for using this program and have a Great Day! ");
+        if  (yorN.equals("N"))    {
+            QuestionGenerator newWelcome = new QuestionGenerator(name,limit);
+            newWelcome.QuestionRunner();
         }
     }
 
@@ -50,10 +47,10 @@ public class PasswordGenerator {
 
     public String tooLongOrShort (String newStr, int count) {
         int remain = newStr.length() - limit;
-        newStr = newStr.substring(0,newStr.length() - (remain + 2));
+        newStr = newStr.substring(0,newStr.length() - (remain + count));
         int i = 0;
-        while (i < 2)   {
-            newStr += (int)(Math.random() * 10);
+        while (i < count)   {
+            newStr += (int)(Math.random() * 9);
             i++;
         }
         return newStr;
